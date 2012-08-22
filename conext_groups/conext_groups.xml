@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="user">
+	<name>User - SURFconext Group Relations</name>
+	<author>M. Dobrinic</author>
+	<creationDate>June, 2012</creationDate>
+	<copyright>Copyright (C) SURFnet bv</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>info@surfnet.nl</authorEmail>
+	<authorUrl>www.surfnet.nl</authorUrl>
+	<version>1.0.0</version>
+	<description>Add group memberships from SURFconext as Joomla authorization groups.</description>
+	<files>
+		<filename plugin="conext_groups">conext_groups.php</filename>
+		<filename>index.html</filename>
+		<folder plugin="conext_groups">GroupRel</folder>
+		<folder plugin="conext_groups">CozmanovaPHPCommons</folder>
+	</files>
+	<languages folder="language">
+		<language tag="en-GB">en-GB/en-GB.plg_user_conext_groups.ini</language>
+		<language tag="nl-NL">nl-NL/nl-NL.plg_user_conext_groups.ini</language>
+	</languages>	
+	<config>
+		<fields name="params">
+			<fieldset name="basic">
+				<field name="consumer_key" type="text" label="OAuth Consumer Key" size="32"
+					description="The Consumer Key, as provided by the Group Provider" />
+				<field name="consumer_secret" type="text" label="OAuth Consumer Secret" size="32"
+					description="The Consumer Secret, as provided by the Group Provider" />
+					
+				<field name="URLs" type="spacer" label="Endpoint URLs"/>
+				<field name="request_url" type="text" label="Request Token URL" size="48"
+					default="https://os.dev.surfconext.nl/oauth/requestToken"
+					description="The URL to retrieve a Request Token" />
+				<field name="authorize_url" type="text" label="Authorize URL" size="48"
+					default="https://os.dev.surfconext.nl/oauth/authorize"
+					description="The URL to authorize a Request Token" />
+				<field name="access_url" type="text" label="Access Token URL" size="48"
+					default="https://os.dev.surfconext.nl/oauth/accessToken"
+					description="The URL to retrieve an Access Token" />
+				<field name="rest_url" type="text" label="REST Endpoint URL" size="48"
+					default="https://os.dev.surfconext.nl/social/rest"
+					description="The URL to make the OpenSocial REST-requests to" />
+				<field name="rpc_url" type="text" label="RPC Endpoint URL" size="48"
+					default="https://os.dev.surfconext.nl/social/rpc"
+					description="The URL to make the OpenSocial RPC-requests to" />
+
+			</fieldset>
+		</fields>
+	</config>
+</extension>

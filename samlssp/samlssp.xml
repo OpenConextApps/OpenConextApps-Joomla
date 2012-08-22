@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="authentication" method="upgrade">
+  <name>Authentication - SAML (SimpleSAMLphp)</name>
+  <author>SURFnet (mdobrinic)</author>
+  <creationDate>June 2012</creationDate>
+  <copyright>Copyright (C) 2012 SURFnet, All rights reserved.</copyright>
+	<license>GNU General Public License version 3 or later; see LICENSE.txt</license>
+  <authorEmail>info@surfnet.nl</authorEmail>
+  <authorUrl>www.surfnet.nl</authorUrl>
+	<version>1.0.0</version>
+  <description>Generic SAML authentication method, based on SimpleSAMLphp</description>
+	<files>
+	    <filename plugin="samlssp">samlssp.php</filename>
+	    <filename plugin="samlssp">samlssp.xml</filename>
+		<filename plugin="samlssp">samlssp.txt</filename>
+		<filename plugin="samlssp">index.html</filename>
+	</files>
+  <config>
+    <fields name="params">
+      <fieldset name="basic">
+        <field name="path" type="text" label="Path to SimpleSAMLphp" description="Full qualified path to the root of the SimpleSAMLphp installation that configures this Joomla installation as SAML SP; i.e. /usr/local/simplesaml-joomla" 
+        	default="/usr/local/simplesaml"
+        	size="60" />
+        <field name="spdef" type="text" label="SP profile" description="Name of the configured SP profile that is used to have a user authenticated (i.e. 'default-sp')" 
+        	default="default-sp"
+        	size="18" />
+        <field name="Map" type="spacer" label="&lt;i&gt;Attribute Map&lt;/i&gt;&lt;br/&gt;Enter attribute mappings; leave empty to ignore the attribute value"/>
+        <field name="map_username" type="text" label="Username" size="18" default="NameID"
+			description="The provided SAML attribute that is mapped to the local Joomla 'username' attribute (i.e. 'NameID')" />
+        <field name="map_email" type="text" label="E-mail" size="18" default="mail"
+			description="The provided SAML attribute that is mapped to the local Joomla 'email' attribute (i.e. 'mail')" />
+        <field name="map_fullname" type="text" label="Fullname" size="18" default="cn"
+			description="The provided SAML attribute that is mapped to the local Joomla 'fullname' attribute (i.e. 'cn')" />
+        <field name="map_birthdate" type="text" label="Birthdate" size="18" default=""
+			description="The provided SAML attribute that is mapped to the local Joomla 'birthdate' attribute" />
+        <field name="map_gender" type="text" label="Gender" size="18" default=""
+			description="The provided SAML attribute that is mapped to the local Joomla 'gender' attribute" />
+        <field name="map_postcode" type="text" label="Postcode" size="18" default=""
+			description="The provided SAML attribute that is mapped to the local Joomla 'postcode' attribute" />
+        <field name="map_country" type="text" label="Country" size="18" default=""
+			description="The provided SAML attribute that is mapped to the local Joomla 'country' attribute" />
+        <field name="map_language" type="text" label="Language" size="18" default="preferredLanguage"
+			description="The provided SAML attribute that is mapped to the local Joomla 'language' attribute (i.e. 'preferredLanguage')" />
+        <field name="map_timezone" type="text" label="Timezone" size="18" default=""
+			description="The provided SAML attribute that is mapped to the local Joomla 'timezone' attribute" />
+      </fieldset>
+    </fields>
+  </config>
+
+</extension>

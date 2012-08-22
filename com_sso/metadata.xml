@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<metadata>
+	<menu name="Direct authentication" msg="Authenticate a user directly, without form"
+		options="none">
+	</menu>
+	<view title="External Login">
+		<message><![CDATA[Authenticate a user directly]]></message>
+	</view>
+</metadata>

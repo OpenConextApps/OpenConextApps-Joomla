@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<extension version="2.5" type="plugin" group="authentication" method="upgrade">
+	<name>Authentication - SURFconext Group Relations helper</name>
+	<author>M. Dobrinic</author>
+	<creationDate>July, 2012</creationDate>
+	<copyright>Copyright (C) SURFnet bv</copyright>
+	<license>GNU General Public License version 2 or later; see LICENSE.txt</license>
+	<authorEmail>info@surfnet.nl</authorEmail>
+	<authorUrl>www.surfnet.nl</authorUrl>
+	<version>1.0.0</version>
+	<description>Authentication helper to be used in combination with 'conext_groups' plugin
+		to support OAuth Token Setup procedure
+	</description>
+	<files>
+		<filename plugin="conext_groups_helper">conext_groups_helper.php</filename>
+		<filename>index.html</filename>
+	</files>
+</extension>

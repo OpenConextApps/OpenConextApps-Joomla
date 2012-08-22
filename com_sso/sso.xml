@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<extension type="component" version="0.0.1" method="upgrade">
+	<name>com_sso</name>
+	<author>SURFnet (mdobrinic)</author>
+	<creationDate>June 2012</creationDate>
+	<copyright>Copyright (C) 2012 SURFnet, All rights reserved.</copyright>
+	<license>GNU General Public License version 3 or later; see LICENSE.txt
+	</license>
+	<authorEmail>info@surfnet.nl</authorEmail>
+	<authorUrl>www.surfnet.nl</authorUrl>
+	<version>1.0.0</version>
+	<description>
+		Component that offers the plumbing for Single Sign On and third party authentication.
+	</description>
+
+	<!-- 
+		sso.php takes responsibility for authenticating a user in the current context. It 
+		will fall back to a configured onAuthenticate() event that does the actual 
+		authentication though
+		metadata.xml introduces a View that triggers authentication, without requiring
+		user interaction 
+	-->
+	<files>
+		<filename>sso.php</filename>
+		<filename>metadata.xml</filename>
+	</files>
+	
+	<!--
+		sso_install.php takes care of removing the menu-item in the administrative
+		section, because no menu-item needs to be there.  
+	-->
+	<scriptfile>sso_install.php</scriptfile>
+
+	<administration>
+		<!-- empty -->
+	</administration>
+</extension>

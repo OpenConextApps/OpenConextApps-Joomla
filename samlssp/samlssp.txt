@@ -1,0 +1,26 @@
+SAMLSSP: SimpleSAMLphp configuration notes
+==========================================
+
+* Expose NameID in attributes
+Configure authproc.sp in such a way that the NameID attributes
+becomes available:
+
+	'authproc.sp' => array(
+		....
+		/* append NameID to available attributes */
+		20  => array(
+	                  'class' => 'saml:NameIDAttribute',
+	                  'attribute' => 'NameID',
+	                  'format' => '%V',
+		),
+		....
+		
+* Use alternative SimpleSAMLphp session store
+Joomla uses a random session cookie name, and SimpleSAMLphp needs to align
+with the Joomla session. The easiest solution is to use an alternative 
+session mechanism, by relying on 
+	'store.type' => 'memcache'
+instead of the default
+	'store.type' => 'phpsession'
+
+
