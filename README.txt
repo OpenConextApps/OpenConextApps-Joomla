@@ -3,6 +3,7 @@
 This document describes how to establish SURFconext integration with Joomla. The following features are included:
 - Integrating SimpleSAML to use SURFfederatie as Identity Provider
 - Integrating osapi-php to use SURFconext as Group Provider
+- Using SURFconext Groups for Joomla authorization
 
 The complete package consists of 4 plugins:
 1) com_sso, helper to make use of Single Sign On flow
@@ -12,6 +13,8 @@ The complete package consists of 4 plugins:
 
 
 == Configuring SSO using SimpleSAMLphp ==
+
+Note in advance: Single Sign On for Joomla only works with the site login. Admin login remains unchanged, as there is no single landing page for logging a user in Joomla's admin area!
 
 *** com_sso
 The com_sso component takes care of triggering the login event without user interaction. When used in combination with a (SAML) third party authenticate plugin, it results in Joomla trying to resume a Single Sign On session with SURFfederatie, or allowing SURFfederatie to setup a new Single Sign On session for the user.
@@ -188,4 +191,20 @@ It is not yet enabled. Before enabling it, you need to configure it with the par
 Now enable the plugin.
 
 Ensure that the samlssp plugin provides an identity that is recognized by the group provider!
+
+
+
+== Using SURFconext Groups for Joomla authorization ==
+
+When the conext_groups-plugin is successfully installed and enabled, it will retrieve the groups of the logged in user, and try to map these groups on Joomla groups. For a SURFconext group to be used, there has to be a matching Joomla group.
+
+Example: Members of the SURFconext-group with identifier 'urn:collab:group:surfteams.nl:nl:surfnet:diensten:joomla_editors' must receive authorization as Editor.
+
+To accomplish this, log in to the admin area of Joomla, and open the 'Users' - 'Groups' section.
+Next, select the '+ New' button to add a new group.
+As Group Title, enter the SURFconext-group identifier, in our case 'urn:collab:group:surfteams.nl:nl:surfnet:diensten:joomla_editors' (without the quotes).
+Choose 'Editor' as parent. This way, our group will inherit all the authorization permissions of the parent.
+Finally, select the 'Save & Close' button to make the change.
+
+Now, whenever a user that is member of the SURFconext-group 'urn:collab:group:surfteams.nl:nl:surfnet:diensten:joomla_editors' logs in, it will receive Editor permissions.
 
